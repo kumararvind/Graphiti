@@ -6,5 +6,6 @@ public protocol DateFormatter {
 }
 
 extension Foundation.DateFormatter : DateFormatter {}
+@available(iOS 10.0, *)
 @available(OSX 10.12, *)
 extension Foundation.ISO8601DateFormatter : DateFormatter {}

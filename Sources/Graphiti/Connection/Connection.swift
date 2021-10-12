@@ -7,6 +7,7 @@ public struct Connection<Node : Encodable> : Encodable {
     let pageInfo: PageInfo
 }
 
+@available(iOS 13, *)
 @available(OSX 10.15, *)
 public extension Connection where Node : Identifiable, Node.ID : LosslessStringConvertible {
     static func id(_ cursor: String) -> Node.ID? {
@@ -18,6 +19,7 @@ public extension Connection where Node : Identifiable, Node.ID : LosslessStringC
     }
 }
 
+@available(iOS 13, *)
 @available(OSX 10.15, *)
 public extension EventLoopFuture where Value : Sequence, Value.Element : Encodable & Identifiable, Value.Element.ID : LosslessStringConvertible {
     func connection(from arguments: Paginatable) -> EventLoopFuture<Connection<Value.Element>> {
@@ -53,6 +55,7 @@ public extension EventLoopFuture where Value: Sequence, Value.Element: Encodable
     }
 }
 
+@available(iOS 13, *)
 @available(OSX 10.15, *)
 public extension Sequence where Element : Encodable & Identifiable, Element.ID : LosslessStringConvertible {
     func connection(from arguments: Paginatable) throws -> Connection<Element> {
